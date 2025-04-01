@@ -359,3 +359,71 @@ button:hover {
 .button-secondary {
     background-color: #7f8c8d;
 }
+
+/* User List Styles */
+.user-list {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.user-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-list th,
+.user-list td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-list th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.user-list tr:hover {
+    background-color: #f5f7fa;
+}
+
+/* User Form Styles */
+.user-form {
+    margin-top: 20px;
+}
+
+.user-form .form-group {
+    margin-bottom: 15px;
+}
+
+.user-form input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+.user-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.user-form button:hover {
+    opacity: 0.8;
+}
+
+.user-form .delete-btn {
+    background-color: #f44336;
+}
+
+.user-form .edit-btn {
+    background-color: #2196F3;
+}
+
+.user-form .button-secondary {
+    background-color: #7f8c8d;
+}
