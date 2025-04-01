@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title layout:title-pattern="$CONTENT_TITLE - AppName">AppName</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+                <button id="closeMenu" class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a th:href="@{/}"><i class="fas fa-home"></i>Home</a></li>
+                <li><a th:href="@{/items}"><i class="fas fa-list"></i>Items</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <button id="menuToggle" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div layout:fragment="content"></div>
+        </div>
+    </div>
+
+    <script th:src="@{/js/menu.js}"></script>
+</body>
+
+</html>
