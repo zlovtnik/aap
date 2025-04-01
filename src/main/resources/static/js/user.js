@@ -115,12 +115,20 @@ function insertAlert(alertDiv) {
 async function fetchUser(userId) {
     try {
         const response = await fetch(`/users/${userId}`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch user');
+        }
         const user = await response.json();
         document.getElementById('user-id').value = user.id;
         document.getElementById('username').value = user.username;
+        // Either don't set the password (preferred for security)
+        // or add a note to the UI that password will be changed
+        // document.getElementById('password').value = '';
+        document.getElementById('password-info').textContent = 'Leave blank to keep current password';
         document.getElementById('email').value = user.email;
     } catch (error) {
         console.error('Error fetching user:', error);
+        displayError('Error fetching user details');
     }
 }
 
