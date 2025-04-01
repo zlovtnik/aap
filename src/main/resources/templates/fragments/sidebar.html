@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <!-- Reusable sidebar component with dynamic active state -->
+    <div th:fragment="sidebar(activeTab)" class="sidebar">
+        <div class="sidebar-header">
+            <h3>Item Management</h3>
+        </div>
+        <ul class="sidebar-menu">
+            <li th:class="${activeTab == 'items' ? 'active' : ''}">
+                <a href="/"><i class="fas fa-list"></i> Items</a>
+            </li>
+            <li th:class="${activeTab == 'new-item' ? 'active' : ''}">
+                <a href="/items/new"><i class="fas fa-plus"></i> New Item</a>
+            </li>
+            <li th:class="${activeTab == 'categories' ? 'active' : ''}">
+                <a href="/categories"><i class="fas fa-tags"></i> Categories</a>
+            </li>
+            <li th:class="${activeTab == 'settings' ? 'active' : ''}">
+                <a href="/settings"><i class="fas fa-cog"></i> Settings</a>
+            </li>
+        </ul>
+        <!-- Menu toggle button with burger icon - properly aligned -->
+        <div class="menu-toggle">
+            <div class="burger">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

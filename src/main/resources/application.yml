@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:oracle:thin:@localhost:1521/free  # replace with your Oracle connection details
-    username: 
-    password: 
+    username: system
+    password: 123Mudar
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     hibernate:

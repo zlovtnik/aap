@@ -33,7 +33,8 @@ public class ItemController {
     @GetMapping
     public String listItems(Model model) {
         model.addAttribute("items", itemRepository.findAll());
-        return "item-list";
+        model.addAttribute("message", "Items List");
+        return "items";
     }
 
     /**
