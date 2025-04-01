@@ -21,7 +21,14 @@ function App() {
 
     const addItem = async (e) => {
         e.preventDefault();
-        if (!currentItem.name || !currentItem.price) return;
+        if (!currentItem.name || !currentItem.price) {
+            alert("Name and price are required");
+            return;
+        }
+        if (parseFloat(currentItem.price) <= 0) {
+            alert("Price must be greater than zero");
+            return;
+        }
 
         try {
             const response = await fetch('/items', {
