@@ -51,7 +51,8 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
+    // Only for internal use - sensitive data
+    protected String getPassword() {
         return password;
     }
 
