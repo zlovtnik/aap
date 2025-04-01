@@ -51,18 +51,65 @@ async function addUser() {
     const password = document.getElementById('password').value;
     const email = document.getElementById('email').value;
 
+    // Basic validation
+    if (!username || !password || !email) {
+        displayError('All fields are required');
+        return;
+    }
+    
+    // Show loading state
+    const submitButton = document.querySelector('#user-form button[type="submit"]');
+    const originalText = submitButton.textContent;
+    submitButton.textContent = 'Saving...';
+    submitButton.disabled = true;
+
     try {
         const response = await fetch('/users', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password, email })
+            body: JSON.stringify({ username, password, email }),
+            credentials: 'same-origin' // Include cookies for CSRF
         });
+        
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Failed to create user');
+        }
+
         const newUser = await response.json();
         fetchUsers();
         document.getElementById('user-form').reset();
+        displaySuccess('User created successfully');
     } catch (error) {
         console.error('Error adding user:', error);
+        displayError(error.message || 'Error creating user');
+    } finally {
+        // Reset button state
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
     }
+}
+
+// Helper functions for user feedback
+function displayError(message) {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = 'alert alert-danger';
+    alertDiv.textContent = message;
+    insertAlert(alertDiv);
+}
+
+function displaySuccess(message) {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = 'alert alert-success';
+    alertDiv.textContent = message;
+    insertAlert(alertDiv);
+}
+
+function insertAlert(alertDiv) {
+    const container = document.querySelector('.container');
+    const form = document.getElementById('user-form');
+    container.insertBefore(alertDiv, form);
+    setTimeout(() => alertDiv.remove(), 5000);
 }
 
 async function fetchUser(userId) {
