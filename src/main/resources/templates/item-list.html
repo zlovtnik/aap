@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/default}">
+
+<head>
+    <title>Items List</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <h2>Items List</h2>
+        <a href="/items/new" class="btn btn-primary mb-3">Add New Item</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${items}">
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.price}"></td>
+                    <td th:text="${item.description}"></td>
+                    <td>
+                        <a th:href="@{/items/{id}(id=${item.id})}" class="btn btn-info btn-sm">View</a>
+                    </td>
+                </tr>
+                <tr th:if="${#lists.isEmpty(items)}">
+                    <td colspan="5" class="text-center">No items found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

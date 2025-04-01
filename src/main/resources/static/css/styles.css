@@ -1,0 +1,361 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+/* App Container */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    position: fixed;
+    height: 100%;
+    left: -200px;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar:hover {
+    left: 0;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background-color: #1a2530;
+    text-align: center;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.sidebar-menu li {
+    padding: 10px 20px;
+    transition: background-color 0.2s;
+}
+
+.sidebar-menu li:hover {
+    background-color: #34495e;
+}
+
+.sidebar-menu li.active {
+    background-color: #3498db;
+}
+
+.sidebar-menu li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-menu li a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    position: absolute;
+    right: -40px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    font-size: 18px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 50px;
+    transition: margin-left 0.3s ease;
+    width: calc(100% - 50px);
+}
+
+.sidebar.active~.main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+.sidebar:hover~.main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    color: #7f8c8d;
+}
+
+.breadcrumbs a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+/* Dashboard Welcome Section */
+.welcome-dashboard {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.welcome-dashboard h1 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.welcome-dashboard p {
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+/* Dashboard Stats */
+.dashboard-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    min-width: 200px;
+    margin-bottom: 15px;
+}
+
+.stat-card h3 {
+    font-size: 16px;
+    color: #7f8c8d;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: bold;
+    color: #3498db;
+    margin-top: 10px;
+}
+
+/* Table Styles */
+.items-table {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: #f5f7fa;
+}
+
+/* Action Buttons */
+.action-buttons {
+    margin: 20px 0;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.action-btn {
+    padding: 5px;
+    margin: 0 3px;
+    color: #333;
+    font-size: 14px;
+}
+
+.action-btn.edit:hover {
+    color: #3498db;
+}
+
+.action-btn.delete:hover {
+    color: #e74c3c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        left: -250px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar.active~.main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .dashboard-stats {
+        flex-direction: column;
+    }
+
+    .stat-card {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.delete-btn {
+    background-color: #f44336;
+}
+
+.edit-btn {
+    background-color: #2196F3;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Additional container styles */
+.container {
+    padding: 15px;
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.flex-large {
+    flex: 1;
+    min-width: 300px;
+}
+
+.button-edit {
+    background-color: #2196F3;
+    margin-right: 5px;
+}
+
+.button-delete {
+    background-color: #f44336;
+}
+
+.button-secondary {
+    background-color: #7f8c8d;
+}
