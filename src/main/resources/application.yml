@@ -3,8 +3,8 @@ spring:
     name: aap
   datasource:
     url: jdbc:oracle:thin:@//localhost:1521/free
-    username: system
-    password: 123Mudar
+    username: 
+    password:
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     database-platform: org.hibernate.dialect.OracleDialect
