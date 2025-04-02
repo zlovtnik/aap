@@ -1,15 +1,33 @@
 spring:
+  application:
+    name: aap
   datasource:
-    url: jdbc:oracle:thin:@localhost:1521/free  # replace with your Oracle connection details
-    username: 
-    password: 
+    url: jdbc:oracle:thin:@//localhost:1521/free
+    username: system
+    password: 123Mudar
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
+    database-platform: org.hibernate.dialect.OracleDialect
     hibernate:
       ddl-auto: update
     show-sql: true
   thymeleaf:
-    prefix: classpath:/templates/
-    suffix: .html
-    mode: HTML
     cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    servlet:
+      content-type: text/html
+
+server:
+  port: 8080
+  error:
+    include-stacktrace: never
+    include-message: always
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    us.com.rclabs: DEBUG
+    org.hibernate: INFO
